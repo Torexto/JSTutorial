@@ -11,7 +11,7 @@ interface Props {
 function NavItem({ children, to, className }: Props) {
   return (
     <div className={clsx(className, "cursor-pointer")}>
-      <Link to={to} className="p-2 w-full block">
+      <Link to={to} className="p-3 w-full block">
         {children}
       </Link>
     </div>

@@ -23,13 +23,13 @@ function NavColapseItem({ children, items, navbarColapse, className }: Props) {
     <div
       className={clsx(
         className,
-        (windowSize.width ?? 0) >= 400 && !isColapse && "relative"
+        (windowSize.width ?? 0) >= 600 && !isColapse && "relative"
       )}
     >
       <button
         className={clsx(
-          "cursor-pointer p-2 w-full hover:bg-slate-600 text-left",
-          (windowSize.width ?? 0) > 400 && "rounded-lg"
+          "cursor-pointer p-3 w-full hover:bg-slate-600 text-left",
+          (windowSize.width ?? 0) > 600 && "rounded-lg"
         )}
         onClick={() => SetIsColapse((prev) => !prev)}
       >
@@ -37,7 +37,7 @@ function NavColapseItem({ children, items, navbarColapse, className }: Props) {
       </button>
       <div
         className={clsx(
-          (windowSize.width ?? 0) >= 400 &&
+          (windowSize.width ?? 0) >= 600 &&
             !isColapse &&
             "absolute flex flex-col bg-slate-500 left-1/2 -translate-x-1/2 rounded-[4px]"
         )}
@@ -47,21 +47,21 @@ function NavColapseItem({ children, items, navbarColapse, className }: Props) {
             to={item.to}
             key={i}
             className={clsx(
-              (windowSize.width ?? 0) < 400 &&
+              (windowSize.width ?? 0) < 600 &&
                 (navbarColapse || isColapse) &&
                 "hidden",
-              (windowSize.width ?? 0) < 400 &&
+              (windowSize.width ?? 0) < 600 &&
                 !navbarColapse &&
                 !isColapse &&
                 "border-t hover:bg-slate-600",
-              (windowSize.width ?? 0) >= 400 && isColapse && "hidden",
-              (windowSize.width ?? 0) >= 400 &&
+              (windowSize.width ?? 0) >= 600 && isColapse && "hidden",
+              (windowSize.width ?? 0) >= 600 &&
                 !isColapse &&
                 "block hover:bg-slate-600 rounded-[4px]"
             )}
           >
-            {(windowSize.width ?? 0) < 400 && `> ${item.name}`}
-            {(windowSize.width ?? 0) > 400 && item.name}
+            {(windowSize.width ?? 0) < 600 && `> ${item.name}`}
+            {(windowSize.width ?? 0) > 600 && item.name}
           </NavItem>
         ))}
       </div>
