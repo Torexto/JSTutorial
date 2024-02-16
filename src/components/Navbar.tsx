@@ -46,7 +46,7 @@ function Navbar1() {
             className={clsx(
               (windowSize.width ?? 0) < 600 && "border-t",
               (windowSize.width ?? 0) > 600 &&
-                "rounded-lg h-10 grid place-content-center",
+                "rounded-lg h-full grid place-content-center",
               "hover:bg-slate-600"
             )}
           >
