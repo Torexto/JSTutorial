@@ -1,11 +1,12 @@
 import Footer from "../components/Footer";
+import MainContent from "../components/MainContent";
 import Navbar from "../components/Navbar";
 
 function Function() {
   return (
     <>
       <Navbar />
-      <div>Function</div>
+      <MainContent>Function</MainContent>
       <Footer />
     </>
   );

@@ -8,7 +8,7 @@ import NavItem from "./Navbar/NavItem";
 import { useWindowSize } from "@uidotdev/usehooks";
 
 function Navbar1() {
-  const [isColapse, SetIsColapse] = useState(true);
+  const [isColapse, setIsColapse] = useState(true);
   const windowSize = useWindowSize();
 
   const tutorialItems = [
@@ -22,7 +22,7 @@ function Navbar1() {
   ];
 
   return (
-    <nav className="h-16 text-2xl flex items-center justify-between bg-slate-700 text-white shadow-2xl px-4 relative">
+    <nav className="h-16 text-2xl flex items-center justify-between bg-slate-700 text-white shadow-2xl px-4 fixed w-full top-0 left-0 z-50">
       <div>
         <Link to="/">Java Script</Link>
       </div>
@@ -62,7 +62,7 @@ function Navbar1() {
         )}
       >
         <button
-          onClick={() => SetIsColapse((prev) => !prev)}
+          onClick={() => setIsColapse((prev) => !prev)}
           className="cursor-pointer p-1 w-12 h-12 border rounded-md hover:bg-slate-800"
         >
           <FontAwesomeIcon icon={faBars} />

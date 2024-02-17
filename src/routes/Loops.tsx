@@ -1,11 +1,12 @@
 import Footer from "../components/Footer";
+import MainContent from "../components/MainContent";
 import Navbar from "../components/Navbar";
 
 function Loops() {
   return (
     <>
       <Navbar />
-      <div>Loops</div>
+      <MainContent>Loops</MainContent>
       <Footer />
     </>
   );

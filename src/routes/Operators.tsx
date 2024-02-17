@@ -1,11 +1,12 @@
 import Footer from "../components/Footer";
+import MainContent from "../components/MainContent";
 import Navbar from "../components/Navbar";
 
 function Operators() {
   return (
     <>
       <Navbar />
-      <div>Operators</div>
+      <MainContent>Operators</MainContent>
       <Footer />
     </>
   );

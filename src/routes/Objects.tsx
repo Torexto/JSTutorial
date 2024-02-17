@@ -1,11 +1,12 @@
 import Footer from "../components/Footer";
+import MainContent from "../components/MainContent";
 import Navbar from "../components/Navbar";
 
 function Objects() {
   return (
     <>
       <Navbar />
-      <div>Objects</div>
+      <MainContent>Objects</MainContent>
       <Footer />
     </>
   );

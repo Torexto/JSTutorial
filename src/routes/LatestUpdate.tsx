@@ -1,11 +1,12 @@
 import Footer from "../components/Footer";
+import MainContent from "../components/MainContent";
 import Navbar from "../components/Navbar";
 
 function LatestUpdate() {
   return (
     <>
       <Navbar />
-      <div>LatestUpdate</div>
+      <MainContent>LatestUpdate</MainContent>
       <Footer />
     </>
   );

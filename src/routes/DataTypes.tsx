@@ -1,11 +1,12 @@
 import Footer from "../components/Footer";
+import MainContent from "../components/MainContent";
 import Navbar from "../components/Navbar";
 
 function DataTypes() {
   return (
     <>
       <Navbar />
-      <div>DataTypes</div>
+      <MainContent>DataTypes</MainContent>
       <Footer />
     </>
   );
