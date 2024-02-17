@@ -7,7 +7,8 @@ interface Props {
 }
 
 function MainContent({ children, className }: Props) {
-  const { height } = useWindowSize();
+  let { height } = useWindowSize();
+  height = height ?? 0;
 
   return (
     <div
