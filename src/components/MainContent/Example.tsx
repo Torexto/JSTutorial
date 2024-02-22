@@ -6,7 +6,11 @@ interface Props {
 }
 
 function Example({ children, className }: Props) {
-  return <div className={clsx("", className)}>{children}</div>;
+  return (
+    <div className={clsx("bg-gray-300 p-6 text-lg rounded-md my-4", className)}>
+      {children}
+    </div>
+  );
 }
 
 export default Example;

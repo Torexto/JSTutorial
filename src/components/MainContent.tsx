@@ -13,7 +13,10 @@ function MainContent({ children, className }: Props) {
   return (
     <div
       style={{ minHeight: height - 80 }}
-      className={clsx("relative top-16 z-0 bg-slate-200 p-2", className)}
+      className={clsx(
+        "relative top-16 z-0 bg-slate-200 p-6 mx-auto w-10/12 shadow-md",
+        className
+      )}
     >
       {children}
     </div>

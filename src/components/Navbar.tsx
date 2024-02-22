@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -10,6 +10,20 @@ import { useWindowSize } from "@uidotdev/usehooks";
 function Navbar1() {
   const [isColapse, setIsColapse] = useState(true);
   const windowSize = useWindowSize();
+  const navRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsColapse(true);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const tutorialItems = [
     { name: "Variables", to: "/variables" },
@@ -22,7 +36,10 @@ function Navbar1() {
   ];
 
   return (
-    <nav className="h-16 text-2xl flex items-center justify-between bg-slate-700 text-white shadow-2xl px-4 fixed w-full top-0 left-0 z-50">
+    <nav
+      ref={navRef}
+      className="h-16 text-2xl flex items-center justify-between bg-slate-700 text-white shadow-2xl px-4 fixed w-full top-0 left-0 z-50"
+    >
       <div>
         <Link to="/">Java Script</Link>
       </div>

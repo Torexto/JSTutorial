@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useEffect, useRef } from "react";
 import NavItem from "./NavItem";
 import clsx from "clsx";
 import { useWindowSize } from "@uidotdev/usehooks";
@@ -16,11 +16,26 @@ interface ObjectProps {
 }
 
 function NavColapseItem({ children, items, navbarColapse, className }: Props) {
-  const [isColapse, SetIsColapse] = useState(true);
+  const [isColapse, setIsColapse] = useState(true);
   const windowSize = useWindowSize();
+  const navRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsColapse(true);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div
+      ref={navRef}
       className={clsx(
         className,
         (windowSize.width ?? 0) >= 600 && !isColapse && "relative"
@@ -31,7 +46,7 @@ function NavColapseItem({ children, items, navbarColapse, className }: Props) {
           "cursor-pointer p-3 w-full hover:bg-slate-600 text-left",
           (windowSize.width ?? 0) > 600 && "rounded-lg"
         )}
-        onClick={() => SetIsColapse((prev) => !prev)}
+        onClick={() => setIsColapse((prev) => !prev)}
       >
         {children}
       </button>

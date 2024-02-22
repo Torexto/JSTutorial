@@ -6,7 +6,13 @@ interface Props {
 }
 
 function Definition({ children, className }: Props) {
-  return <div className={clsx("", className)}>{children}</div>;
+  return (
+    <div
+      className={clsx("bg-green-400 p-6 text-lg rounded-md my-4", className)}
+    >
+      {children}
+    </div>
+  );
 }
 
 export default Definition;
